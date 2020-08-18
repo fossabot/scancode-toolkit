@@ -30,6 +30,7 @@ from functools import partial
 import gzip
 import logging
 import os
+from shutil import move
 
 try:
     # These imports add support for multistream BZ2 files
@@ -41,7 +42,6 @@ except ImportError:
 
 
 from commoncode import fileutils
-from commoncode.system import py2
 from extractcode import EXTRACT_SUFFIX
 
 
@@ -68,7 +68,7 @@ def uncompress(location, target_dir, decompressor, suffix=EXTRACT_SUFFIX):
     target_location = os.path.join(target_dir, os.path.basename(location) + suffix)
     if os.path.exists(target_location):
         fileutils.delete(target_location)
-    os.rename(tmp_loc, target_location)
+    move(tmp_loc, target_location)
     return warnings
 
 
@@ -141,11 +141,8 @@ class _GzipFileWithTrailing(gzip.GzipFile):
         self.first_file = False
         gzip.GzipFile._read_gzip_header(self)
 
-if py2:
-    GzipFileWithTrailing = _GzipFileWithTrailing
-else:
-    # FIXME: there is no easy way to monkey patch the gzip.py code in Python 3
-    GzipFileWithTrailing = gzip.GzipFile
+# FIXME: there is no easy way to monkey patch the gzip.py code in Python 3
+GzipFileWithTrailing = gzip.GzipFile
 
 
 def get_compressed_file_content(location, decompressor):
