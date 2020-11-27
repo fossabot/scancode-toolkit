@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftiulpin%2Fscancode-toolkit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftiulpin%2Fscancode-toolkit?ref=badge_shield)
+
 ================
 ScanCode toolkit
 ================
@@ -229,3 +231,6 @@ the third-party code used in ScanCode for more details.
 .. |docs-rtd| image:: https://readthedocs.org/projects/scancode-toolkit/badge/?version=latest
     :target: https://scancode-toolkit.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftiulpin%2Fscancode-toolkit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftiulpin%2Fscancode-toolkit?ref=badge_large)
